@@ -159,6 +159,8 @@ setup(
     package_dir=PROJECTS,
     package_data={"detectron2.model_zoo": get_model_zoo_configs()},
     python_requires=">=3.7",
+    ext_modules=get_extensions(),
+    cmdclass={"build_ext": torch.utils.cpp_extension.BuildExtension},
     install_requires=[
         # These dependencies are not pure-python.
         # In general, avoid adding dependencies that are not pure-python because they are not
